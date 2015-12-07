@@ -8,6 +8,11 @@ patches {
     patches = file('patches')
 }
 
+task build(type: Zip) {
+    baseName = project.name
+    from 'Modified', 'Extra'
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'
 }

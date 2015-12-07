@@ -32,5 +32,5 @@
 +            or not os.path.exists(os.path.join(dir, "versions")) \
 +            or not os.path.exists(os.path.join(dir, "libraries")) \
 +            or not os.path.exists(os.path.join(os.path.join(dir, "versions"), version)):
-+        print ("ERROR : You didn't read the instructions!")
++        print("ERROR : You didn't read the instructions!")
 +        sys.exit()
