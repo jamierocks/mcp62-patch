@@ -40,8 +40,22 @@
          # HINT: We read the names of the SRG output
          self.srgsconfclient = os.path.normpath(config.get('SRGS', 'ConfClient'))
          self.srgsconfserver = os.path.normpath(config.get('SRGS', 'ConfServer'))
-@@ -455,6 +472,9 @@
-         jarslwjgl = config.get('JAR', 'LWJGL').split(',')
+@@ -447,14 +464,20 @@
+             self.has_srg = True
+ 
+         # HINT: We read the position of the jar files
+-        self.dirnatives = os.path.normpath(config.get('JAR', 'DirNatives'))
+-        self.jarclient = os.path.normpath(config.get('JAR', 'Client'))
++        self.dirnatives = os.path.join(self.dirjars, "versions", self.versionClient, "%s-natives"%self.versionClient)
++        self.jarclient = os.path.join(self.dirjars, "versions", self.versionClient, "%s.jar"%self.versionClient)
+         self.jarserver = os.path.normpath(config.get('JAR', 'Server'))
+         self.md5jarclt = config.get('JAR', 'MD5Client')
+         self.md5jarsrv = config.get('JAR', 'MD5Server')
+-        jarslwjgl = config.get('JAR', 'LWJGL').split(',')
++
++
++        #jarslwjgl = config.get('JAR', 'LWJGL').split(',')
++        jarslwjgl = []
          self.jarslwjgl = [os.path.normpath(p) for p in jarslwjgl]
  
 +        # the json file
