@@ -1,0 +1,11 @@
+--- runtime/decompile.py
++++ runtime/decompile.py
+@@ -61,7 +61,7 @@
+             sys.exit(1)
+ 
+         # always strip comments by default, turn off in update mode if required
+-        strip_comments = True
++        strip_comments = False
+ 
+         # update only options
+         rg_update = False
