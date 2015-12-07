@@ -2,7 +2,7 @@
 +++ CHANGELOG
 @@ -1,3 +1,6 @@
 +== v6.2-patch ==
-+Update to work with new Minecraft launcher.
+++ Bundle MinecraftForge fork of FernFlower.
 +
  == v6.2 ==
  + Updated to client 1.2.5 & server 1.2.5

@@ -1,6 +1,9 @@
 plugins {
     id 'uk.jamierocks.propatcher' version '1.1'
+    id 'de.undercouch.download' version '2.0.0'
 }
+
+import de.undercouch.gradle.tasks.download.Download
 
 patches {
     root = file('Original')
@@ -12,6 +15,17 @@ task build(type: Zip) {
     baseName = project.name
     from 'Modified', 'Extra'
 }
+
+task downloadMcp(type: Download) {
+    src 'http://download2171.mediafire.com/zhki4y9k5dxg/c6liau295225253/mcp62.zip'
+    dest "${buildDir}/temp/mcp62.zip"
+}
+
+task setupWorkspace(type: Copy) {
+    from zipTree(file("${buildDir}/temp/mcp62.zip"))
+    into file('Original')
+}
+tasks.setupWorkspace.dependsOn 'downloadMcp'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.9'

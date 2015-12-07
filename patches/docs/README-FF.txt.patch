@@ -1,0 +1,7 @@
+--- docs/README-FF.txt
++++ docs/README-FF.txt
+@@ -1,2 +1,2 @@
+-To use the fernflower decompiler, just put the fernflower.jar file into the runtime/bin folder.
+-Only tested with fernflower 0.8.6, other versions may fail.
++Bundled with mcp62-patch is the MinecraftForge fork of FernFlower.
++The version included is '2.0'.
