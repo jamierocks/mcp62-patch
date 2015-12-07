@@ -9,28 +9,3 @@
  import time
  
  from commands import CLIENT, SIDE_NAME
-@@ -173,3 +175,24 @@
-     commands.gathermd5s(side, True)
-     commands.unpackmodifiedclasses(side)
-     return True
-+
-+
-+def getMinecraftPath():
-+    if sys.platform.startswith('linux'):
-+        return os.path.expanduser("~/.minecraft")
-+    elif sys.platform.startswith('win'):
-+        return os.path.join(os.getenv("APPDATA"), ".minecraft")
-+    elif sys.platform.startswith('darwin'):
-+        return os.path.expanduser("~/Library/Application Support/minecraft")
-+    else:
-+        print "Ahh shit! Cannot detect of version : %s."%sys.platform
-+        sys.exit()
-+
-+
-+def checkForMinecraftVersion(dir, version):
-+    if not os.path.exists(dir) \
-+            or not os.path.exists(os.path.join(dir, "versions")) \
-+            or not os.path.exists(os.path.join(dir, "libraries")) \
-+            or not os.path.exists(os.path.join(os.path.join(dir, "versions"), version)):
-+        print("ERROR : You didn't read the instructions!")
-+        sys.exit()

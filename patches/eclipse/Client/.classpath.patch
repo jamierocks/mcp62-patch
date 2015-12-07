@@ -1,0 +1,29 @@
+--- eclipse/Client/.classpath
++++ eclipse/Client/.classpath
+@@ -2,21 +2,13 @@
+ <classpath>
+ 	<classpathentry kind="src" path="src"/>
+ 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+-	<classpathentry kind="lib" path="jars/bin/jinput.jar">
++	<classpathentry kind="lib" path="jars/versions/1.2.5/1.2.5.jar">
+ 		<attributes>
+-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Client/jars/bin/natives"/>
++    		<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Client/jars/versions/1.2.5/1.2.5-natives"/>
+ 		</attributes>
+ 	</classpathentry>
+-	<classpathentry kind="lib" path="jars/bin/lwjgl_util.jar">
+-		<attributes>
+-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Client/jars/bin/natives"/>
+-		</attributes>
+-	</classpathentry>
+-	<classpathentry kind="lib" path="jars/bin/lwjgl.jar">
+-		<attributes>
+-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Client/jars/bin/natives"/>
+-		</attributes>
+-	</classpathentry>
+-	<classpathentry kind="lib" path="jars/bin/minecraft.jar"/>
++	<classpathentry kind="lib" path="jars/libraries/net/java/jinput/jinput/2.0.5/jinput-2.0.5.jar"/>
++	<classpathentry kind="lib" path="jars/libraries/org/lwjgl/lwjgl/lwjgl_util/2.9.0/lwjgl_util-2.9.0.jar"/>
++	<classpathentry kind="lib" path="jars/libraries/org/lwjgl/lwjgl/lwjgl/2.9.0/lwjgl-2.9.0.jar"/>
+ 	<classpathentry kind="output" path="bin"/>
+ </classpath>
