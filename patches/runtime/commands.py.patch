@@ -9,3 +9,44 @@
      _default_config = 'conf/mcp.cfg'
      _version_config = 'conf/version.cfg'
  
+@@ -196,6 +196,21 @@
+         self.checkjava()
+         self.readcommands(verify, no_patch=no_patch)
+ 
++    def getVersions(self):
++        try:
++            config = ConfigParser.SafeConfigParser()
++            with open(os.path.normpath(self._version_config)) as fh:
++                config.readfp(fh)
++            client_version = config.get('VERSION', 'ClientVersion')
++            server_version = config.get('VERSION', 'ServerVersion')
++            return client_version, server_version
++        except IOError:
++            pass
++        except ConfigParser.Error:
++            pass
++
++        return None
++
+     def checkcommand(self, name, command, java=False, single_line=False, check_return=True, error=True):
+         self.logger.debug("# %s: '%s'", name, command)
+         try:
+@@ -431,6 +446,8 @@
+         if set(['param', 'name', 'side']) <= header_params:
+             self.has_param_csv = True
+ 
++        self.versionClient, self.versionServer = self.getVersions()
++
+         # HINT: We read the names of the SRG output
+         self.srgsconfclient = os.path.normpath(config.get('SRGS', 'ConfClient'))
+         self.srgsconfserver = os.path.normpath(config.get('SRGS', 'ConfServer'))
+@@ -455,6 +472,9 @@
+         jarslwjgl = config.get('JAR', 'LWJGL').split(',')
+         self.jarslwjgl = [os.path.normpath(p) for p in jarslwjgl]
+ 
++        # the json file
++        self.jsonFile = os.path.join(self.dirjars, "versions", self.versionClient, "%s.json"%self.versionClient)
++
+         # HINT: We read keys relevant to retroguard
+         self.retroguard = os.path.normpath(config.get('RETROGUARD', 'Location'))
+         self.rgconfig = os.path.normpath(config.get('RETROGUARD', 'RetroConf'))
